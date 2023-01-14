@@ -4,28 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./app.css" text="text/css">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Grocery App</h1>
-    </header>
-    <main>
-    <div class="add-items">
-        <h2>Add an item</h2>
-        <p>Enter Grocery Name</p>
-        <input type="text" id="grocery-name" placeholder="min 2 chars">
-        <p>Enter Grocery Quantity</p> 
-        <input type="text" id="grocery-quantity" placeholder="Quantity can't be less than 0">
-        <p>Enter Grocery Price</p>
-        <input type="text" id="grocery-price" placeholder="Price can't be less then 0">   
-        <button class="add-btn" type="button">ADD</button>
+    <div class="title">
+        <label for="color">Color</label>
+        <input type="text" name="color" id="color">
+        <label for="fontSize">fontSize</label>
+        <input type="text" name="fontSize" id="fontSize">
+        <label for="text">Text</label>
+        <input type="text" name="text" id="text">
+        <button type="submit" id="btn" onclick="generateTitle()">Generate Title</button>
+        <h1 id="h1"></h1>
     </div>
-    <div class="grocery-list">
-        <h2>List of groceries</h2>
-    </div>
-    </main>
-    <script src="./script.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
