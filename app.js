@@ -267,24 +267,53 @@ const inputItems = document.querySelector("#items");
 const list = document.querySelector(".list");
 const button = document.querySelector(".btn");
 
-function dynamicList(color, fontSize, items, itemsHTML) {
-    let liHTML = ""
-    for(let item of items){
-        liHTML += `<li>${item}</li>`
-    }
-    let listHTML = `<ul style = "color: ${color}; font-size: ${fontSize}rem">${liHTML}</ul>`
-    list.innerHTML += listHTML;
-
+function dynamicList(color, fontSize, items) {
+  let liHTML = "";
+  for (let item of items) {
+    liHTML += `<li>${item}</li>`;
+  }
+  let listHTML = `<ul style = "color: ${color}; font-size: ${fontSize}rem">${liHTML}</ul>`;
+  list.innerHTML += listHTML;
 }
-    button.addEventListener("click", function(){
-        const items = inputItems.value.split(",")
-        console.log(items);
-        dynamicList(inputColor.value, inputFont.value,items);
-    })
+button.addEventListener("click", function () {
+  const items = inputItems.value.split(",");
+  console.log(items);
+  dynamicList(inputColor.value, inputFont.value, items);
+});
 
 console.log("-------------------------------------");
 
-
 // Create a student registry page
+
+const fName = document.querySelector("#fname");
+const lName = document.querySelector("#lname");
+const age = document.querySelector("#age");
+const email = document.querySelector("#email");
+const registerBtn = document.querySelector("#register-btn");
+
+let database = [];
+
+function StudentGenerator(fName, lName, age, email) {
+  this.fName = fName;
+  this.lName = lName;
+  this.age = age;
+  this.email = email;
+}
+
+registerBtn.addEventListener("click", function () {
+  const newStudent = new StudentGenerator(
+    fName.value,
+    lName.value,
+    age.value,
+    email.value
+  );
+    fName.value = ``;
+    lName.value = ``;
+    age.value = ``;
+    email.value = ``;``
+
+  console.log(newStudent);
+  database.push(newStudent);
+});
 
 
