@@ -1,22 +1,39 @@
 body {
-  font-family: sans-serif;
-}
-
-main {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.pokemon-list {
   background-color: aqua;
-  width: 140px;
-  border-radius: 4%;
-  box-shadow: 4px 4px;
 }
 
-.pokemon-card {
-  background-color: aquamarine;
-  width: 90px;
-  border-radius: 4%;
-  box-shadow: 4px 4px;
+header > p {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+header {
+  background-color: rgb(255, 127, 127);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.cards > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(255, 245, 107);
+  width: 400px;
+  box-shadow: 5px 5px;
+  border-radius: 4px;
+}
+
+.cards > div > h2 {
+  color: rgb(0, 47, 255);
 }

@@ -1,43 +1,30 @@
-const pokemonListEl = document.querySelector(".pokemon-list");
-const pokemonCardEl = document.querySelector(".pokemon-card");
+const storeCard = document.querySelector(".cards");
 
-const POKEMON_URL = "https://pokeapi.co/api/v2/pokemon";
+const STORE_URL = "https://fakestoreapi.com/products";
 
-function renderPokemonList(listElement, pokemonData) {
-  for (let el of pokemonData) {
-    const newLi = document.createElement("LI");
-    newLi.textContent = el.name;
-    listElement.appendChild(newLi);
-    newLi.addEventListener("click", function () {
-      fetchPokemonByUrl(el.url);
-    });
-  }
-}
-
-function renderPokemonDetails(cardElement, pokemonDetailsData) {
-  cardElement.innerHTML = ` <h3>${pokemonDetailsData.name}</h3>
-    <img src="${pokemonDetailsData.sprites.front_default}" alt="image of a pokemon">`;
-}
-
-function fetchPokemons() {
-  console.log("before fetch");
-  fetch(POKEMON_URL)
+function fetchStoreUrl() {
+  fetch(STORE_URL)
     .then(function (res) {
       return res.json();
     })
     .then(function (data) {
-      console.log(data.results);
-      renderPokemonList(pokemonListEl, data.results);
-    });
-  console.log("after fetch");
-}
-
-function fetchPokemonByUrl(url) {
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      renderPokemonDetails(pokemonCardEl, data);
+      renderProductList(storeCard, data);
     });
 }
 
-fetchPokemons();
+fetchStoreUrl();
+
+function renderProductList(listElement, productData) {
+  for (let el of productData) {
+    const newDIV = document.createElement("DIV");
+    newDIV.innerHTML = `
+    <p>${el.id}</p>
+    <h2>${el.title}</h2> 
+    <img src="${el.image}" alt="image of the product" width = "150px">
+    <strong>${el.description}</strong>
+    <p>Price - ${el.price}$</p>
+    <button>Buy</button>
+    `;
+    listElement.appendChild(newDIV);
+  }
+}
