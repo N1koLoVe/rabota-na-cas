@@ -1,47 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div class="title">
-        <label for="color">Color</label>
-        <input type="text" name="color" id="color">
-        <label for="fontSize">fontSize</label>
-        <input type="text" name="fontSize" id="fontSize">
-        <label for="text">Text</label>
-        <input type="text" name="text" id="text">
-        <button type="submit" id="btn" onclick="generateTitle()">Generate Title</button>
-        <h1 id="h1"></h1>
-    </div>
-    <hr>
-    <div class="list-generator">
-        <h2>List Generator</h2>
-        <button onclick="listGenerator()" type="submit">Generate</button>
-        <div class="list-names"></div>
-    </div>
-    <hr>
-    <div class="dynamic-list">
-        <label for="color">Color</label>
-        <input type="text" name="color" id="colors">
-        <label for="font">FontSize</label>
-        <input type="text" name="font" id="fontSizes">
-        <label for="items">Items</label>
-        <input type="text" name="items" id="items">
-        <button type="submit" class="btn">Click</button>
-        <div class="list"></div>
-    </div>
-    <hr>
-    <div>
-        <input type="text" name="" id="fname" placeholder="Enter First Name">
-        <input type="text" name="" id="lname" placeholder="Enter Last Name">
-        <input type="number" name="" id="age" placeholder="Enter Age">
-        <input type="email" name="" id="email" placeholder="Enter Email">
-        <button id="register-btn">Register</button>
-    </div>
-    <script src="/app.js"></script>
-</body>
+    <link rel="stylesheet" href="./app.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Pokemon App</h1>
+    </header>
+    <main>
+      <section>
+        <ol class="pokemon-list"></ol>
+      </section>
+      <section>
+        <div class="pokemon-card">
+          <p>Please click on a pokemon to see how it looks...</p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
