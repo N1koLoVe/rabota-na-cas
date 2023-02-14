@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+  background-color: #151515;
+}
+
+.home-btn {
+  width: 100px;
+  height: 50px;
+}
+
+.about-btn {
+  width: 100px;
+  height: 50px;
+}
+
+.hourly-btn {
+  width: 100px;
+  height: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  background-color: #d35100;
+}
+
+main {
+  justify-content: center;
+  display: flex;
+}
+
+.current-div {
+  background-color: #f07900;
+  width: 650px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.day-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f8a145;
+  border: 4px solid black;
+  width: 20%;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hourly-div {
+  background-color: #f07900;
+  width: 650px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+.hourly-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f8a145;
+  border: 4px solid black;
+  width: 20%;
+  text-align: center;
+}
+
+.hourly-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.about {
+  color: aliceblue;
+}
