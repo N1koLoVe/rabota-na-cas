@@ -20,11 +20,16 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 15px;
   margin: 0;
   padding: 0;
   background-color: #d35100;
+}
+
+nav {
+  display: flex;
+  align-items: center;
 }
 
 main {

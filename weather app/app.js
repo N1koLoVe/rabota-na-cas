@@ -1,35 +1,14 @@
-const API_URL =
+let API_URL =
   "https://api.openweathermap.org/data/3.0/onecall?lat=41.99646&lon=21.43141&units=metric&exclude=minutely&appid=83cf676a48739fd57b023a3d32f2ef8b";
-
-const ApiBtn = document.querySelector(".api-data");
-const date = new Date(1674727200 * 1000);
-console.log(date.toLocaleDateString("fr"));
-
-// ApiBtn.addEventListener("click", () => {
-//   fetch(API_URL)
-//     .then((res) => res.json())
-//     .then((data) => {
-//     //   homeBtn.addEventListener("click", () => {
-//     //     renderPage(data);
-//     //   });
-
-//     //   hourlyBtn.addEventListener("click", () => {
-//     //     renderHourly(data);
-//     //   });
-
-//     //   aboutBtn.addEventListener("click", () => {
-//     //     aboutMe();
-//     //   });
-//     // });
-// });
 
 const main = document.querySelector(".main");
 const homeBtn = document.querySelector(".home-btn");
-const nextDay = document.querySelector(".next-day");
 const hourlyBtn = document.querySelector(".hourly-btn");
 const aboutBtn = document.querySelector(".about-btn");
+const searchBtn = document.querySelector(".search-btn");
+const searchInput = document.querySelector(".search-input");
 
-const renderPage = (main, data) => {
+const renderPage = (data) => {
   const currentDate = new Date(data.current.dt * 1000);
   main.innerHTML = "";
   main.innerHTML = `
@@ -65,7 +44,7 @@ const renderPage = (main, data) => {
   document.querySelector(".card-container").innerHTML = dailyHTML;
 };
 
-const renderHourly = (main, data) => {
+const renderHourly = (data) => {
   main.innerHTML = `<div class="hourly-div">
   <h1>Hourly</h1>
   <div class="hourly-card"></div>
@@ -99,21 +78,38 @@ const aboutMe = () => {
   </div>`;
 };
 
-async function fetchApiWeather() {
-  const res = await fetch(API_URL);
-  const weatherData = await res.json();
+function fetchApiWeather(api) {
+  fetch(api)
+    .then((res) => res.json())
+    .then((data) => {
+      hourlyBtn.addEventListener("click", () => {
+        renderHourly(data);
+      });
 
-  homeBtn.addEventListener("click", () => {
-    renderPage(main, weatherData);
-  });
+      homeBtn.addEventListener("click", () => {
+        renderPage(data);
+      });
 
-  hourlyBtn.addEventListener("click", () => {
-    renderHourly(main, weatherData);
-  });
-
-  aboutBtn.addEventListener("click", () => {
-    aboutMe();
-  });
+      aboutBtn.addEventListener("click", () => {
+        aboutMe();
+      });
+    });
 }
 
-fetchApiWeather();
+fetchApiWeather(API_URL);
+
+function searchApi() {
+  const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput.value}&limit=1&appid=83cf676a48739fd57b023a3d32f2ef8b`;
+
+  fetch(geoUrl)
+    .then((res) => res.json())
+    .then((data) => {
+      const { LATITUDE, LONGITUDE } = data[0];
+
+      const weatherUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${LATITUDE}&lon=${LONGITUDE}&units=metric&exclude=minutely&appid=83cf676a48739fd57b023a3d32f2ef8b`;
+
+      fetchApiWeather(weatherUrl);
+    });
+}
+
+searchBtn.addEventListener("click", searchApi);
